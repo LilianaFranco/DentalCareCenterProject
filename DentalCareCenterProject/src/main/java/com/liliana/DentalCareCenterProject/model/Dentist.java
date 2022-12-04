@@ -12,7 +12,7 @@ public class Dentist {
 
     //Properties
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer dentistId;
     private int dentalLicense;
     private String lastName;
