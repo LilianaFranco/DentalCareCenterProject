@@ -1,14 +1,24 @@
 package com.liliana.DentalCareCenterProject.model;
+import jakarta.persistence.*;
 
-import javax.xml.crypto.Data;
 import java.util.Date;
 
+@Entity
+@Table(name = "Appointments")
 public class Appointment {
 
     //Properties
+    @Id
+    @GeneratedValue
     private int appointmentId;
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "dentistId")
     private Dentist dentist;
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "patientId")
     private Patient patient;
+    @Column
     private Date date;
 
     //Empty Constructor

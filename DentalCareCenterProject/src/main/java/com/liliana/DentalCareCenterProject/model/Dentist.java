@@ -1,13 +1,29 @@
 package com.liliana.DentalCareCenterProject.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
+
+import java.util.Set;
+
+@Entity
+@Table(name = "Dentists")
 public class Dentist {
 
     //Properties
+    @Id
+    @GeneratedValue
     private Integer dentistId;
+    @Column
     private int dentalLicense;
+    @Column
     private String lastName;
+    @Column
     private String name;
+
+    @OneToMany(mappedBy = "dentist")
+    @JsonIgnore
+    private Set<Patient> patients;
 
     //Empty Constructor
     public Dentist() {

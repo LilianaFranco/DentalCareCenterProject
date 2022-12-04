@@ -1,5 +1,6 @@
 package com.liliana.DentalCareCenterProject.model;
 
+
 public class DentistDto {
 
     //Properties

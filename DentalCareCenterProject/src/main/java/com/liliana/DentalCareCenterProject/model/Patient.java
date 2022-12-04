@@ -1,16 +1,31 @@
 package com.liliana.DentalCareCenterProject.model;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 
 import java.util.Date;
 
+@Entity
+@Table(name = "Patients")
 public class Patient {
 
     //Properties
+    @Id
+    @GeneratedValue
     private Integer patientId;
+    @Column
     private int idCard;
+    @Column
     private String lastName;
+    @Column
     private String name;
+    @Column
     private String address;
+    @Column
     private Date registrationDate;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "dentistId", referencedColumnName = "dentistId")
+    private Dentist dentist;
 
     //Empty Constructor
     public Patient() {
