@@ -6,12 +6,14 @@ import com.liliana.DentalCareCenterProject.model.PatientDto;
 import com.liliana.DentalCareCenterProject.repository.PatientRepository;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
+@Service
 public class PatientService implements InterfacePatientService {
 
     //Dependency Injection
