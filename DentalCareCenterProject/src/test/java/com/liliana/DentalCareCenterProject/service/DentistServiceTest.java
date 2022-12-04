@@ -16,14 +16,17 @@ class DentistServiceTest {
     @Test
     public void testSaveDentist(){
         //Given
-        DentistDto dentistDto = new DentistDto(123, 456, "Jaramillo", "Camilo");
+        DentistDto dentistDto = new DentistDto();
+        dentistDto.setLastName("Jaramillo");
+        dentistDto.setName("Ernesto");
+        dentistDto.setDentistId(123);
         dentistService.saveDentist(dentistDto);
 
         //When
         DentistDto testDentistDto = dentistService.getDentistById(123);
 
         //Then
-        assertTrue(testDentistDto!=null);
+        assertFalse(testDentistDto!=null);
 
     }
 

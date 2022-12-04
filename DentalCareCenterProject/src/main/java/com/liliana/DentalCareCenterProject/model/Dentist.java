@@ -12,13 +12,10 @@ public class Dentist {
 
     //Properties
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer dentistId;
-    @Column
     private int dentalLicense;
-    @Column
     private String lastName;
-    @Column
     private String name;
 
     @OneToMany(mappedBy = "dentist")

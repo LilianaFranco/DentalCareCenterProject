@@ -10,17 +10,12 @@ public class Patient {
 
     //Properties
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer patientId;
-    @Column
     private int idCard;
-    @Column
     private String lastName;
-    @Column
     private String name;
-    @Column
     private String address;
-    @Column
     private Date registrationDate;
 
     @OneToOne(cascade = CascadeType.ALL)
