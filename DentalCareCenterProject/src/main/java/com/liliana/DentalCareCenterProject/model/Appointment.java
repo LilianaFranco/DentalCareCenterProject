@@ -1,0 +1,70 @@
+package com.liliana.DentalCareCenterProject.model;
+
+import javax.xml.crypto.Data;
+import java.util.Date;
+
+public class Appointment {
+
+    //Properties
+    private int appointmentId;
+    private Dentist dentist;
+    private Patient patient;
+    private Date date;
+
+    //Empty Constructor
+    public Appointment() {
+    }
+
+    //Constructor
+    public Appointment(int appointmentId, Dentist dentist, Patient patient, Date date) {
+        this.appointmentId = appointmentId;
+        this.dentist = dentist;
+        this.patient = patient;
+        this.date = date;
+    }
+
+    //Getters and Setters
+
+    public int getAppointmentId() {
+        return appointmentId;
+    }
+
+    public void setAppointmentId(int appointmentId) {
+        this.appointmentId = appointmentId;
+    }
+
+    public Dentist getDentist() {
+        return dentist;
+    }
+
+    public void setDentist(Dentist dentist) {
+        this.dentist = dentist;
+    }
+
+    public Patient getPatient() {
+        return patient;
+    }
+
+    public void setPatient(Patient patient) {
+        this.patient = patient;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    //Methods
+    @Override
+    public String toString() {
+        return "Appointment{" +
+                "appointmentId=" + appointmentId +
+                ", dentist=" + dentist +
+                ", patient=" + patient +
+                ", date=" + date +
+                '}';
+    }
+}
