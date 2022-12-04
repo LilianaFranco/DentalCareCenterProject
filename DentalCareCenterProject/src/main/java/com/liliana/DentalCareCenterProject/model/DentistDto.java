@@ -13,7 +13,7 @@ public class DentistDto {
     }
 
     //Constructor
-    public DentistDto(Integer dentistId, String lastName, String name) {
+    public DentistDto(Integer dentistId, int i, String lastName, String name) {
         this.dentistId = dentistId;
         this.lastName = lastName;
         this.name = name;
