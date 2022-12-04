@@ -10,7 +10,7 @@ public class Appointment {
     //Properties
     @Id
     @GeneratedValue
-    private int appointmentId;
+    private Integer appointmentId;
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "dentistId")
     private Dentist dentist;
@@ -26,7 +26,7 @@ public class Appointment {
     }
 
     //Constructor
-    public Appointment(int appointmentId, Dentist dentist, Patient patient, Date date) {
+    public Appointment(Integer appointmentId, Dentist dentist, Patient patient, Date date) {
         this.appointmentId = appointmentId;
         this.dentist = dentist;
         this.patient = patient;
