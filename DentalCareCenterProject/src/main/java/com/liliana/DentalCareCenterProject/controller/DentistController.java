@@ -22,13 +22,12 @@ public class DentistController {
     }
 
     @GetMapping("/{id}")
-    public DentistDto getDentistbyId(@PathVariable Integer id){
+    public DentistDto getDentistById(@PathVariable Integer id){
         return dentistService.getDentistById(id);
     }
 
     @PutMapping
     public ResponseEntity<?> updateDentist(@RequestBody DentistDto dentistDto){
-        System.out.println("hola");
         dentistService.updateDentist(dentistDto);
         return ResponseEntity.ok(HttpStatus.OK);
     }
