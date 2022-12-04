@@ -37,7 +37,7 @@ public class DentistService implements InterfaceDentistService{
         Optional<Dentist> dentist = dentistRepository.findById(dentistId);
         //Create container
         DentistDto dentistDto = null;
-        //If exist, convert to dentistDto
+        //If it exists, convert to dentistDto
         if(dentist.isPresent()){
             dentistDto = mapper.convertValue(dentist, DentistDto.class);
         }

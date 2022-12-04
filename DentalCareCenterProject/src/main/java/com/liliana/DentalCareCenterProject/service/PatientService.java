@@ -40,7 +40,7 @@ public class PatientService implements InterfacePatientService {
         Optional<Patient> patient = patientRepository.findById(patientId);
         //Create container
         PatientDto patientDto = null;
-        //If exist, convert to patientDto
+        //If it exists, convert to patientDto
         if(patient.isPresent()){
             patientDto = mapper.convertValue(patient, PatientDto.class);
         }
