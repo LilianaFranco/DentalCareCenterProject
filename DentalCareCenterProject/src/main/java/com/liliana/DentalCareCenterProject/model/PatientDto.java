@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class PatientDto {
     //Properties
-    private int idCard;
+    private Integer patientId;
     private String lastName;
     private String name;
     private String address;
@@ -15,8 +15,8 @@ public class PatientDto {
     }
 
     //Constructor
-    public PatientDto(int idCard, String lastName, String name, String address, Date registrationDate) {
-        this.idCard = idCard;
+    public PatientDto(Integer patientId, String lastName, String name, String address, Date registrationDate) {
+        this.patientId = patientId;
         this.lastName = lastName;
         this.name = name;
         this.address = address;
@@ -24,12 +24,12 @@ public class PatientDto {
     }
 
     //Getters and Setters
-    public int getIdCard() {
-        return idCard;
+    public Integer getPatientId() {
+        return patientId;
     }
 
-    public void setIdCard(int idCard) {
-        this.idCard = idCard;
+    public void setPatientId(Integer patientId) {
+        this.patientId = patientId;
     }
 
     public String getLastName() {
@@ -68,7 +68,7 @@ public class PatientDto {
     @Override
     public String toString() {
         return "Patient{" +
-                ", idCard=" + idCard +
+                ", idCard=" + patientId +
                 ", lastName='" + lastName + '\'' +
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +

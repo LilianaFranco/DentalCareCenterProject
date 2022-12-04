@@ -4,7 +4,7 @@ package com.liliana.DentalCareCenterProject.model;
 public class DentistDto {
 
     //Properties
-    private int dentalLicense;
+    private Integer dentistId;
     private String lastName;
     private String name;
 
@@ -13,19 +13,19 @@ public class DentistDto {
     }
 
     //Constructor
-    public DentistDto(int dentalLicense, String lastName, String name) {
-        this.dentalLicense = dentalLicense;
+    public DentistDto(Integer dentistId, String lastName, String name) {
+        this.dentistId = dentistId;
         this.lastName = lastName;
         this.name = name;
     }
 
     //Getters and Setters
-    public int getDentalLicense() {
-        return dentalLicense;
+    public Integer getDentistId() {
+        return dentistId;
     }
 
-    public void setDentalLicense(int dentalLicense) {
-        this.dentalLicense = dentalLicense;
+    public void setDentistId(Integer dentistId) {
+        this.dentistId = dentistId;
     }
 
     public String getLastName() {
@@ -48,7 +48,7 @@ public class DentistDto {
     @Override
     public String toString() {
         return "Dentist{" +
-                ", dentalLicense=" + dentalLicense +
+                ", dentalLicense=" + dentistId +
                 ", lastName='" + lastName + '\'' +
                 ", name='" + name + '\'' +
                 '}';
