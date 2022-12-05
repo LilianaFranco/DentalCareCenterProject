@@ -1,5 +1,6 @@
 package com.liliana.DentalCareCenterProject.controller;
 
+import com.liliana.DentalCareCenterProject.exception.ResourceNotFoundException;
 import com.liliana.DentalCareCenterProject.model.AppointmentDto;
 import com.liliana.DentalCareCenterProject.service.InterfaceAppointmentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,7 @@ public class AppointmentController {
     }
 
     @GetMapping("/{id}")
-    public AppointmentDto getAppointmentById(@PathVariable Integer id){
+    public AppointmentDto getAppointmentById(@PathVariable Integer id) throws ResourceNotFoundException {
         return appointmentService.getAppointmentById(id);
     }
 

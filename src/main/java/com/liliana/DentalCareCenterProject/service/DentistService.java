@@ -1,6 +1,7 @@
 package com.liliana.DentalCareCenterProject.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.liliana.DentalCareCenterProject.exception.ResourceNotFoundException;
 import com.liliana.DentalCareCenterProject.model.Dentist;
 import com.liliana.DentalCareCenterProject.model.DentistDto;
 import com.liliana.DentalCareCenterProject.repository.DentistRepository;
@@ -35,12 +36,14 @@ public class DentistService implements InterfaceDentistService{
     }
 
     @Override
-    public DentistDto getDentistById(Integer dentistId) {
+    public DentistDto getDentistById(Integer dentistId) throws ResourceNotFoundException {
         Optional<Dentist> dentist = dentistRepository.findById(dentistId);
         //Create container
         DentistDto dentistDto = null;
         //If it exists, convert to dentistDto
-        if(dentist.isPresent()){
+        if(dentist.isEmpty()){
+            throw new ResourceNotFoundException("El odontologo no fue encontrada");
+        }else{
             dentistDto = mapper.convertValue(dentist, DentistDto.class);
         }
         return dentistDto;

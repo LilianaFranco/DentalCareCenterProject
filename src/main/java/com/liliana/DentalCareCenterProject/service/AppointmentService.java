@@ -1,6 +1,7 @@
 package com.liliana.DentalCareCenterProject.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.liliana.DentalCareCenterProject.exception.ResourceNotFoundException;
 import com.liliana.DentalCareCenterProject.model.*;
 import com.liliana.DentalCareCenterProject.repository.AppointmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,12 +36,14 @@ public class AppointmentService implements InterfaceAppointmentService{
     }
 
     @Override
-    public AppointmentDto getAppointmentById(Integer appointmentId) {
+    public AppointmentDto getAppointmentById(Integer appointmentId) throws ResourceNotFoundException {
         Optional<Appointment> appointment = appointmentRepository.findById(appointmentId);
         //Create container
         AppointmentDto appointmentDto = null;
         //If it exists, convert to appointmentDto
-        if(appointment.isPresent()){
+        if(appointment.isEmpty()){
+            throw new ResourceNotFoundException("La cita médica no fue encontrada");
+        }else{
             appointmentDto = mapper.convertValue(appointment, AppointmentDto.class);
         }
         return appointmentDto;

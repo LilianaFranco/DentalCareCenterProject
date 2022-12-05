@@ -1,10 +1,10 @@
 package com.liliana.DentalCareCenterProject.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.liliana.DentalCareCenterProject.exception.ResourceNotFoundException;
 import com.liliana.DentalCareCenterProject.model.Patient;
 import com.liliana.DentalCareCenterProject.model.PatientDto;
 import com.liliana.DentalCareCenterProject.repository.PatientRepository;
-import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -38,12 +38,14 @@ public class PatientService implements InterfacePatientService {
     }
 
     @Override
-    public PatientDto getPatientById(Integer patientId) {
+    public PatientDto getPatientById(Integer patientId) throws ResourceNotFoundException {
         Optional<Patient> patient = patientRepository.findById(patientId);
         //Create container
         PatientDto patientDto = null;
         //If it exists, convert to patientDto
-        if(patient.isPresent()){
+        if(patient.isEmpty()){
+            throw new ResourceNotFoundException("El paciente no fue encontrado");
+        }else{
             patientDto = mapper.convertValue(patient, PatientDto.class);
         }
         return patientDto;
