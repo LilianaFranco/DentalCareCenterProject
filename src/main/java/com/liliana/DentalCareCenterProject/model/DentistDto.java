@@ -5,6 +5,7 @@ public class DentistDto {
 
     //Properties
     private Integer dentistId;
+    private Integer dentalLicense;
     private String lastName;
     private String name;
 
@@ -13,19 +14,29 @@ public class DentistDto {
     }
 
     //Constructor
-    public DentistDto(Integer dentistId, int i, String lastName, String name) {
+    public DentistDto(int dentistId, int dentalLicense, String lastName, String name) {
         this.dentistId = dentistId;
+        this.dentalLicense = dentalLicense;
         this.lastName = lastName;
         this.name = name;
     }
 
     //Getters and Setters
+
     public Integer getDentistId() {
         return dentistId;
     }
 
     public void setDentistId(Integer dentistId) {
         this.dentistId = dentistId;
+    }
+
+    public Integer getDentalLicense() {
+        return dentalLicense;
+    }
+
+    public void setDentalLicense(Integer dentalLicense) {
+        this.dentalLicense = dentalLicense;
     }
 
     public String getLastName() {
@@ -48,7 +59,8 @@ public class DentistDto {
     @Override
     public String toString() {
         return "Dentist{" +
-                ", dentalLicense=" + dentistId +
+                "id=" + dentistId +
+                ", dentalLicense=" + dentalLicense +
                 ", lastName='" + lastName + '\'' +
                 ", name='" + name + '\'' +
                 '}';
