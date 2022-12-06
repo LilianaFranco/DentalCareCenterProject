@@ -1,5 +1,6 @@
 package com.liliana.DentalCareCenterProject.service;
 
+import com.liliana.DentalCareCenterProject.exception.ResourceNotFoundException;
 import com.liliana.DentalCareCenterProject.model.DentistDto;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,7 @@ class DentistServiceTest {
     private InterfaceDentistService dentistService;
 
     @Test
-    public void testSaveDentist(){
+    public void testSaveDentist() throws ResourceNotFoundException {
         //Given
         DentistDto dentistDto = new DentistDto();
         dentistDto.setLastName("Jaramillo");
